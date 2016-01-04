@@ -1,0 +1,37 @@
+{
+  "name": "limelight-downloader",
+  "version": "1.0.0",
+  "description": "Migrates from Limelight to Amazon S3",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hybe/limelight-migrate.git"
+  },
+  "keywords": [
+    "limelight",
+    "api",
+    "amazon",
+    "s3"
+  ],
+  "author": "Sami Pippuri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hybe/limelight-migrate/issues"
+  },
+  "homepage": "https://github.com/hybe/limelight-migrate#readme",
+  "dependencies": {
+    "async": "^1.5.1",
+    "aws-sdk": "^2.2.26",
+    "fs": "0.0.2",
+    "jasmine": "^2.4.1",
+    "lodash": "^3.10.1",
+    "q": "^1.4.1",
+    "request": "^2.67.0"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "limelight-migrate": "index.js"
+  }
+}
