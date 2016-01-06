@@ -5,13 +5,15 @@ var request = require('request')
 var _ = require('lodash')
 var fs = require('fs')
 var q = require('q')
-var zlib = require('zlib');
+var zlib = require('zlib')
 var async = require('async')
 
 var BASE_PATH = './content'
 var MANIFEST_FILE = 'manifest.json'
 var manifest = []
-var content = JSON.parse(fs.readFileSync('content.json'));
+var content = JSON.parse(fs.readFileSync('content.json'))
+var uploadBucket = 'changeMe'
+var prefix = 'myPrefix/'
 
 if(!fs.existsSync(BASE_PATH))
 	fs.mkdirSync(BASE_PATH)
@@ -108,7 +110,7 @@ function download(item, ready) {
 function s3Upload(localFile, remoteFile) {
 	var deferred = q.defer()
 	var body = fs.createReadStream(localFile)
-	var s3Object = new AWS.S3({params: {Bucket: 'hybe-backup', Key: 'HYBE-Stories/' + remoteFile}});
+	var s3Object = new AWS.S3({params: {Bucket: uploadBucket, Key: prefix + remoteFile}});
 	s3Object.upload({Body: body})  //.on('httpUploadProgress', function(evt) { })
 		.send(function(err, data) { 
 			if(err) {
